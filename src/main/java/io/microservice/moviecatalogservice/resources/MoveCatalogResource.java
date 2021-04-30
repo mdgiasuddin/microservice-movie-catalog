@@ -2,7 +2,6 @@ package io.microservice.moviecatalogservice.resources;
 
 import io.microservice.moviecatalogservice.models.CatalogItem;
 import io.microservice.moviecatalogservice.models.Movie;
-import io.microservice.moviecatalogservice.models.Rating;
 import io.microservice.moviecatalogservice.models.UserRating;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,8 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,7 +32,7 @@ public class MoveCatalogResource {
         return ratings.getUserRatings().stream().map(rating -> {
 
             // RestTemplate method
-             Movie movie = restTemplate.getForObject("http://localhost:9082/movie/" + rating.getMovieId(), Movie.class);
+            Movie movie = restTemplate.getForObject("http://localhost:9082/movie/" + rating.getMovieId(), Movie.class);
 
 
             // WebClientBuilder method

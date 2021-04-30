@@ -14,6 +14,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class MovieCatalogServiceApplication {
 
+    public static void main(String[] args) {
+        SpringApplication.run(MovieCatalogServiceApplication.class, args);
+    }
+
     @Bean
     public RestTemplate getRestTemplate() {
         return new RestTemplate();
@@ -22,10 +26,6 @@ public class MovieCatalogServiceApplication {
     @Bean
     WebClient.Builder getWebClientBuilder() {
         return WebClient.builder();
-    }
-
-    public static void main(String[] args) {
-        SpringApplication.run(MovieCatalogServiceApplication.class, args);
     }
 
     @Bean
